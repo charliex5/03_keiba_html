@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026/06/27 函館 12R </title>
+
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      margin: 20px;
+      background-color: #fafafa;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .tabs {
+      margin-bottom: 15px;
+    }
+
+    .tab-button {
+      padding: 9px 12px;
+      margin-right: 6px;
+      border: 1px solid #ccc;
+      background-color: #f0f0f0;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .tab-button.active {
+      background-color: #333;
+      color: #fff;
+      border-color: #333;
+    }
+
+    .tab-content {
+      display: none;
+      background-color: #fff;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 6px 8px;
+      text-align: right;
+    }
+
+    th {
+      background-color: #eee;
+    }
+
+    td:first-child, th:first-child {
+      text-align: center;
+    }
+
+    .no-data {
+      color: #999;
+      font-style: italic;
+      padding: 10px;
+    }
+
+    @media (max-width: 600px) {
+      table {
+        font-size: 11px;
+      }
+
+      th, td {
+        padding: 3px 5px;
+      }
+    }
+    th {
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    th.asc::after { content: " ▲"; }
+    th.desc::after { content: " ▼"; }
+
+    .race-list-link {
+      margin-bottom: 12px;
+    }
+
+    .race-list-link a {
+      display: inline-block;
+      font-size: 14px;
+      color: #4a90e2;
+      text-decoration: none;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .race-list-link a:hover {
+      background-color: #eef5ff;
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>2026/06/27 函館 12R</h1>
+
+  <!-- 一覧リンク -->
+  <div class="race-list-link">
+    <a href="20260627_list.html">← 当日のレース一覧へ</a>
+  </div>
+
+  <!-- 券種タブ -->
+  <div class="tabs">
+    <button class="tab-button active" onclick="showTab('tansho')">単勝</button>
+    <button class="tab-button" onclick="showTab('umaren')">馬連</button>
+    <button class="tab-button" onclick="showTab('umatan')">馬単</button>
+    <button class="tab-button" onclick="showTab('sanrenpuku')">三連複</button>
+    <button class="tab-button" onclick="showTab('sanrentan')">三連単</button>
+  </div>
+
+  <!-- 単勝 -->
+  <div id="tansho" class="tab-content active">
+    <h2>単勝</h2>
+    <table>
+      <thead>
+        <tr>
+          <th onclick="sortTable(this, 0)">馬1</th>
+          <th onclick="sortTable(this, 1)">予O</th>
+          <th onclick="sortTable(this, 2)">変R</th>
+          <th onclick="sortTable(this, 3)">S3%</th>
+          <th onclick="sortTable(this, 4)">S2%</th>
+          <th onclick="sortTable(this, 5)">票2</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 馬連 -->
+  <div id="umaren" class="tab-content">
+    <h2>馬連</h2>
+    <table>
+      <thead>
+        <tr>
+          <th onclick="sortTable(this, 0)">馬1</th>
+          <th onclick="sortTable(this, 1)">馬2</th>
+          <th onclick="sortTable(this, 2)">予O</th>
+          <th onclick="sortTable(this, 3)">変R</th>
+          <th onclick="sortTable(this, 4)">S3%</th>
+          <th onclick="sortTable(this, 5)">S2%</th>
+          <th onclick="sortTable(this, 6)">票2</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 馬単 -->
+  <div id="umatan" class="tab-content">
+    <h2>馬単</h2>
+    <table>
+      <thead>
+        <tr>
+          <th onclick="sortTable(this, 0)">馬1</th>
+          <th onclick="sortTable(this, 1)">馬2</th>
+          <th onclick="sortTable(this, 2)">予O</th>
+          <th onclick="sortTable(this, 3)">変R</th>
+          <th onclick="sortTable(this, 4)">S3%</th>
+          <th onclick="sortTable(this, 5)">S2%</th>
+          <th onclick="sortTable(this, 6)">票2</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 三連複 -->
+  <div id="sanrenpuku" class="tab-content">
+    <h2>三連複</h2>
+    <table>
+      <thead>
+        <tr>
+          <th onclick="sortTable(this, 0)">馬1</th>
+          <th onclick="sortTable(this, 1)">馬2</th>
+          <th onclick="sortTable(this, 2)">馬3</th>
+          <th onclick="sortTable(this, 3)">予O</th>
+          <th onclick="sortTable(this, 4)">変R</th>
+          <th onclick="sortTable(this, 5)">S3%</th>
+          <th onclick="sortTable(this, 6)">S2%</th>
+          <th onclick="sortTable(this, 7)">票2</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 三連単 -->
+  <div id="sanrentan" class="tab-content">
+    <h2>三連単</h2>
+    <table>
+      <thead>
+        <tr>
+          <th onclick="sortTable(this, 0)">馬1</th>
+          <th onclick="sortTable(this, 1)">馬2</th>
+          <th onclick="sortTable(this, 2)">馬3</th>
+          <th onclick="sortTable(this, 3)">予O</th>
+          <th onclick="sortTable(this, 4)">変R</th>
+          <th onclick="sortTable(this, 5)">S3%</th>
+          <th onclick="sortTable(this, 6)">S2%</th>
+          <th onclick="sortTable(this, 7)">票2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>7</td><td>3</td><td>5</td><td>1675.1</td><td>0.152</td><td>0.02</td><td>0.02</td><td>472</td></tr>
+<tr><td>4</td><td>8</td><td>7</td><td>495.2</td><td>0.126</td><td>0.08</td><td>0.08</td><td>1516</td></tr>
+<tr><td>3</td><td>7</td><td>5</td><td>1569.0</td><td>0.123</td><td>0.03</td><td>0.03</td><td>513</td></tr>
+<tr><td>4</td><td>7</td><td>8</td><td>440.9</td><td>0.116</td><td>0.09</td><td>0.09</td><td>1771</td></tr>
+<tr><td>4</td><td>8</td><td>2</td><td>198.1</td><td>0.116</td><td>0.19</td><td>0.19</td><td>3785</td></tr>
+<tr><td>5</td><td>7</td><td>3</td><td>931.0</td><td>0.110</td><td>0.04</td><td>0.04</td><td>826</td></tr>
+<tr><td>7</td><td>5</td><td>3</td><td>1285.3</td><td>0.095</td><td>0.03</td><td>0.03</td><td>628</td></tr>
+<tr><td>5</td><td>3</td><td>7</td><td>1032.2</td><td>0.090</td><td>0.04</td><td>0.04</td><td>775</td></tr>
+<tr><td>8</td><td>4</td><td>7</td><td>1165.8</td><td>0.089</td><td>0.04</td><td>0.04</td><td>692</td></tr>
+<tr><td>4</td><td>1</td><td>8</td><td>334.2</td><td>0.088</td><td>0.13</td><td>0.13</td><td>2446</td></tr>
+<tr><td>8</td><td>7</td><td>4</td><td>1337.7</td><td>0.088</td><td>0.03</td><td>0.03</td><td>600</td></tr>
+<tr><td>3</td><td>5</td><td>7</td><td>1348.1</td><td>0.087</td><td>0.03</td><td>0.03</td><td>606</td></tr>
+<tr><td>4</td><td>8</td><td>1</td><td>453.4</td><td>0.083</td><td>0.10</td><td>0.09</td><td>1843</td></tr>
+<tr><td>7</td><td>8</td><td>4</td><td>1225.8</td><td>0.083</td><td>0.03</td><td>0.03</td><td>661</td></tr>
+<tr><td>4</td><td>2</td><td>8</td><td>99.8</td><td>0.073</td><td>0.42</td><td>0.43</td><td>8325</td></tr>
+<tr><td>8</td><td>4</td><td>2</td><td>412.6</td><td>0.071</td><td>0.10</td><td>0.10</td><td>1983</td></tr>
+<tr><td>8</td><td>7</td><td>5</td><td>1907.0</td><td>0.067</td><td>0.03</td><td>0.03</td><td>493</td></tr>
+<tr><td>7</td><td>4</td><td>8</td><td>939.6</td><td>0.065</td><td>0.04</td><td>0.04</td><td>857</td></tr>
+<tr><td>7</td><td>8</td><td>5</td><td>1573.3</td><td>0.063</td><td>0.03</td><td>0.03</td><td>528</td></tr>
+<tr><td>8</td><td>5</td><td>7</td><td>1599.3</td><td>0.063</td><td>0.03</td><td>0.03</td><td>528</td></tr>
+<tr><td>4</td><td>10</td><td>8</td><td>279.8</td><td>0.060</td><td>0.15</td><td>0.15</td><td>2978</td></tr>
+<tr><td>4</td><td>8</td><td>10</td><td>506.2</td><td>0.058</td><td>0.09</td><td>0.09</td><td>1662</td></tr>
+<tr><td>2</td><td>4</td><td>8</td><td>69.8</td><td>0.058</td><td>0.57</td><td>0.58</td><td>11232</td></tr>
+<tr><td>4</td><td>8</td><td>3</td><td>904.2</td><td>0.055</td><td>0.05</td><td>0.05</td><td>970</td></tr>
+<tr><td>4</td><td>8</td><td>5</td><td>312.0</td><td>0.053</td><td>0.14</td><td>0.14</td><td>2630</td></tr>
+<tr><td>4</td><td>1</td><td>2</td><td>69.5</td><td>0.052</td><td>0.59</td><td>0.59</td><td>11499</td></tr>
+<tr><td>2</td><td>4</td><td>7</td><td>39.1</td><td>0.048</td><td>1.01</td><td>1.03</td><td>20081</td></tr>
+<tr><td>10</td><td>4</td><td>6</td><td>643.9</td><td>0.046</td><td>0.07</td><td>0.07</td><td>1326</td></tr>
+<tr><td>4</td><td>1</td><td>5</td><td>89.6</td><td>0.046</td><td>0.45</td><td>0.45</td><td>8815</td></tr>
+<tr><td>4</td><td>2</td><td>7</td><td>61.9</td><td>0.045</td><td>0.67</td><td>0.69</td><td>13336</td></tr>
+<tr><td>4</td><td>10</td><td>1</td><td>100.9</td><td>0.045</td><td>0.41</td><td>0.42</td><td>8079</td></tr>
+<tr><td>7</td><td>5</td><td>8</td><td>1299.5</td><td>0.044</td><td>0.03</td><td>0.03</td><td>639</td></tr>
+<tr><td>4</td><td>2</td><td>1</td><td>34.5</td><td>0.043</td><td>1.11</td><td>1.12</td><td>21754</td></tr>
+<tr><td>4</td><td>7</td><td>1</td><td>241.0</td><td>0.041</td><td>0.19</td><td>0.19</td><td>3651</td></tr>
+<tr><td>4</td><td>2</td><td>10</td><td>26.1</td><td>0.039</td><td>1.46</td><td>1.49</td><td>28888</td></tr>
+<tr><td>2</td><td>4</td><td>9</td><td>53.5</td><td>0.037</td><td>0.82</td><td>0.82</td><td>15946</td></tr>
+<tr><td>4</td><td>10</td><td>7</td><td>148.8</td><td>0.037</td><td>0.29</td><td>0.29</td><td>5736</td></tr>
+<tr><td>2</td><td>4</td><td>1</td><td>23.5</td><td>0.037</td><td>1.66</td><td>1.69</td><td>32782</td></tr>
+<tr><td>4</td><td>10</td><td>5</td><td>67.6</td><td>0.037</td><td>0.63</td><td>0.64</td><td>12442</td></tr>
+<tr><td>4</td><td>1</td><td>10</td><td>143.9</td><td>0.037</td><td>0.30</td><td>0.30</td><td>5813</td></tr>
+<tr><td>2</td><td>4</td><td>10</td><td>15.8</td><td>0.037</td><td>2.42</td><td>2.44</td><td>47465</td></tr>
+<tr><td>6</td><td>7</td><td>3</td><td>19167.7</td><td>0.036</td><td>0.00</td><td>0.00</td><td>56</td></tr>
+<tr><td>6</td><td>10</td><td>4</td><td>2692.5</td><td>0.035</td><td>0.02</td><td>0.02</td><td>342</td></tr>
+<tr><td>4</td><td>10</td><td>2</td><td>35.0</td><td>0.035</td><td>1.10</td><td>1.11</td><td>21621</td></tr>
+<tr><td>10</td><td>1</td><td>6</td><td>1569.4</td><td>0.035</td><td>0.03</td><td>0.03</td><td>575</td></tr>
+<tr><td>4</td><td>2</td><td>9</td><td>74.9</td><td>0.035</td><td>0.55</td><td>0.56</td><td>10836</td></tr>
+<tr><td>6</td><td>7</td><td>1</td><td>9339.4</td><td>0.034</td><td>0.01</td><td>0.01</td><td>118</td></tr>
+<tr><td>7</td><td>5</td><td>4</td><td>374.7</td><td>0.034</td><td>0.12</td><td>0.12</td><td>2381</td></tr>
+<tr><td>4</td><td>5</td><td>8</td><td>164.2</td><td>0.034</td><td>0.26</td><td>0.26</td><td>5069</td></tr>
+<tr><td>4</td><td>7</td><td>2</td><td>134.3</td><td>0.033</td><td>0.33</td><td>0.34</td><td>6535</td></tr>
+<tr><td>8</td><td>7</td><td>2</td><td>1514.4</td><td>0.032</td><td>0.03</td><td>0.03</td><td>631</td></tr>
+<tr><td>1</td><td>4</td><td>8</td><td>728.7</td><td>0.029</td><td>0.06</td><td>0.06</td><td>1226</td></tr>
+<tr><td>4</td><td>7</td><td>5</td><td>193.8</td><td>0.028</td><td>0.23</td><td>0.23</td><td>4489</td></tr>
+<tr><td>8</td><td>2</td><td>4</td><td>365.6</td><td>0.027</td><td>0.12</td><td>0.12</td><td>2329</td></tr>
+<tr><td>4</td><td>1</td><td>7</td><td>183.2</td><td>0.027</td><td>0.23</td><td>0.23</td><td>4477</td></tr>
+<tr><td>10</td><td>1</td><td>4</td><td>146.0</td><td>0.027</td><td>0.31</td><td>0.31</td><td>5965</td></tr>
+<tr><td>4</td><td>10</td><td>9</td><td>173.0</td><td>0.027</td><td>0.26</td><td>0.26</td><td>5082</td></tr>
+<tr><td>2</td><td>1</td><td>4</td><td>41.8</td><td>0.027</td><td>0.95</td><td>0.96</td><td>18771</td></tr>
+<tr><td>4</td><td>5</td><td>7</td><td>110.2</td><td>0.026</td><td>0.37</td><td>0.38</td><td>7310</td></tr>
+<tr><td>7</td><td>5</td><td>1</td><td>698.6</td><td>0.025</td><td>0.07</td><td>0.07</td><td>1273</td></tr>
+<tr><td>5</td><td>7</td><td>4</td><td>261.3</td><td>0.025</td><td>0.17</td><td>0.17</td><td>3264</td></tr>
+<tr><td>2</td><td>5</td><td>4</td><td>21.8</td><td>0.025</td><td>1.79</td><td>1.79</td><td>34806</td></tr>
+<tr><td>10</td><td>1</td><td>8</td><td>716.6</td><td>0.024</td><td>0.06</td><td>0.06</td><td>1246</td></tr>
+<tr><td>7</td><td>3</td><td>4</td><td>1635.2</td><td>0.024</td><td>0.03</td><td>0.03</td><td>587</td></tr>
+<tr><td>2</td><td>10</td><td>4</td><td>17.5</td><td>0.024</td><td>2.42</td><td>2.45</td><td>47624</td></tr>
+<tr><td>4</td><td>3</td><td>8</td><td>646.5</td><td>0.024</td><td>0.07</td><td>0.06</td><td>1263</td></tr>
+<tr><td>4</td><td>5</td><td>1</td><td>64.3</td><td>0.024</td><td>0.63</td><td>0.63</td><td>12195</td></tr>
+<tr><td>7</td><td>4</td><td>3</td><td>1066.2</td><td>0.023</td><td>0.04</td><td>0.04</td><td>859</td></tr>
+<tr><td>7</td><td>1</td><td>5</td><td>697.3</td><td>0.022</td><td>0.06</td><td>0.06</td><td>1158</td></tr>
+<tr><td>8</td><td>4</td><td>3</td><td>2129.2</td><td>0.022</td><td>0.02</td><td>0.02</td><td>453</td></tr>
+<tr><td>2</td><td>4</td><td>5</td><td>15.3</td><td>0.022</td><td>2.63</td><td>2.63</td><td>51075</td></tr>
+<tr><td>10</td><td>4</td><td>7</td><td>133.4</td><td>0.021</td><td>0.33</td><td>0.33</td><td>6406</td></tr>
+<tr><td>4</td><td>2</td><td>5</td><td>24.4</td><td>0.020</td><td>1.63</td><td>1.65</td><td>32038</td></tr>
+<tr><td>1</td><td>7</td><td>5</td><td>694.2</td><td>0.020</td><td>0.07</td><td>0.07</td><td>1281</td></tr>
+<tr><td>9</td><td>8</td><td>4</td><td>2591.5</td><td>0.020</td><td>0.02</td><td>0.02</td><td>398</td></tr>
+<tr><td>10</td><td>4</td><td>2</td><td>29.7</td><td>0.020</td><td>1.30</td><td>1.31</td><td>25491</td></tr>
+<tr><td>4</td><td>8</td><td>6</td><td>2384.3</td><td>0.020</td><td>0.02</td><td>0.02</td><td>400</td></tr>
+<tr><td>10</td><td>2</td><td>4</td><td>20.7</td><td>0.017</td><td>1.78</td><td>1.79</td><td>34894</td></tr>
+<tr><td>1</td><td>8</td><td>4</td><td>1047.8</td><td>0.017</td><td>0.04</td><td>0.04</td><td>832</td></tr>
+<tr><td>4</td><td>3</td><td>1</td><td>341.4</td><td>0.016</td><td>0.13</td><td>0.13</td><td>2477</td></tr>
+<tr><td>7</td><td>4</td><td>2</td><td>182.7</td><td>0.016</td><td>0.23</td><td>0.23</td><td>4476</td></tr>
+<tr><td>7</td><td>5</td><td>2</td><td>319.7</td><td>0.015</td><td>0.14</td><td>0.14</td><td>2685</td></tr>
+<tr><td>2</td><td>10</td><td>5</td><td>26.3</td><td>0.015</td><td>1.52</td><td>1.53</td><td>29739</td></tr>
+<tr><td>4</td><td>1</td><td>3</td><td>315.5</td><td>0.014</td><td>0.14</td><td>0.14</td><td>2712</td></tr>
+<tr><td>2</td><td>5</td><td>7</td><td>70.0</td><td>0.013</td><td>0.61</td><td>0.61</td><td>11857</td></tr>
+<tr><td>10</td><td>4</td><td>5</td><td>59.6</td><td>0.013</td><td>0.73</td><td>0.73</td><td>14209</td></tr>
+<tr><td>7</td><td>4</td><td>5</td><td>292.5</td><td>0.013</td><td>0.15</td><td>0.15</td><td>2928</td></tr>
+<tr><td>10</td><td>7</td><td>4</td><td>220.3</td><td>0.012</td><td>0.19</td><td>0.20</td><td>3801</td></tr>
+<tr><td>5</td><td>3</td><td>9</td><td>2031.1</td><td>0.012</td><td>0.03</td><td>0.03</td><td>493</td></tr>
+<tr><td>1</td><td>5</td><td>7</td><td>592.3</td><td>0.012</td><td>0.08</td><td>0.08</td><td>1518</td></tr>
+<tr><td>10</td><td>4</td><td>9</td><td>129.7</td><td>0.011</td><td>0.34</td><td>0.34</td><td>6523</td></tr>
+<tr><td>10</td><td>4</td><td>1</td><td>90.4</td><td>0.011</td><td>0.49</td><td>0.50</td><td>9675</td></tr>
+<tr><td>4</td><td>9</td><td>8</td><td>1120.3</td><td>0.011</td><td>0.05</td><td>0.05</td><td>900</td></tr>
+<tr><td>2</td><td>8</td><td>4</td><td>168.0</td><td>0.011</td><td>0.27</td><td>0.27</td><td>5247</td></tr>
+<tr><td>4</td><td>9</td><td>7</td><td>473.5</td><td>0.011</td><td>0.10</td><td>0.09</td><td>1839</td></tr>
+<tr><td>8</td><td>4</td><td>5</td><td>718.2</td><td>0.010</td><td>0.07</td><td>0.07</td><td>1314</td></tr>
+<tr><td>4</td><td>7</td><td>10</td><td>216.1</td><td>0.010</td><td>0.19</td><td>0.19</td><td>3768</td></tr>
+<tr><td>2</td><td>5</td><td>10</td><td>33.2</td><td>0.010</td><td>1.22</td><td>1.22</td><td>23772</td></tr>
+<tr><td>10</td><td>5</td><td>2</td><td>59.3</td><td>0.010</td><td>0.72</td><td>0.72</td><td>14096</td></tr>
+<tr><td>10</td><td>4</td><td>8</td><td>273.0</td><td>0.010</td><td>0.16</td><td>0.16</td><td>3138</td></tr>
+<tr><td>8</td><td>9</td><td>2</td><td>2814.8</td><td>0.010</td><td>0.02</td><td>0.02</td><td>392</td></tr>
+<tr><td>4</td><td>8</td><td>9</td><td>1102.5</td><td>0.010</td><td>0.04</td><td>0.04</td><td>789</td></tr>
+<tr><td>4</td><td>7</td><td>9</td><td>465.6</td><td>0.010</td><td>0.09</td><td>0.09</td><td>1825</td></tr>
+<tr><td>4</td><td>5</td><td>2</td><td>36.7</td><td>0.010</td><td>1.17</td><td>1.17</td><td>22772</td></tr>
+<tr><td>5</td><td>7</td><td>2</td><td>250.8</td><td>0.010</td><td>0.18</td><td>0.18</td><td>3507</td></tr>
+<tr><td>4</td><td>5</td><td>9</td><td>142.7</td><td>0.009</td><td>0.29</td><td>0.29</td><td>5640</td></tr>
+<tr><td>2</td><td>7</td><td>4</td><td>64.4</td><td>0.009</td><td>0.69</td><td>0.69</td><td>13451</td></tr>
+<tr><td>5</td><td>4</td><td>7</td><td>178.7</td><td>0.008</td><td>0.25</td><td>0.25</td><td>4866</td></tr>
+<tr><td>5</td><td>3</td><td>2</td><td>474.1</td><td>0.008</td><td>0.10</td><td>0.10</td><td>1891</td></tr>
+<tr><td>8</td><td>5</td><td>4</td><td>781.0</td><td>0.008</td><td>0.06</td><td>0.06</td><td>1242</td></tr>
+<tr><td>10</td><td>5</td><td>4</td><td>68.3</td><td>0.007</td><td>0.60</td><td>0.60</td><td>11641</td></tr>
+<tr><td>2</td><td>5</td><td>9</td><td>90.0</td><td>0.007</td><td>0.48</td><td>0.48</td><td>9348</td></tr>
+<tr><td>8</td><td>5</td><td>3</td><td>3830.0</td><td>0.007</td><td>0.01</td><td>0.01</td><td>274</td></tr>
+<tr><td>4</td><td>1</td><td>9</td><td>319.4</td><td>0.006</td><td>0.14</td><td>0.14</td><td>2691</td></tr>
+<tr><td>10</td><td>1</td><td>9</td><td>296.7</td><td>0.006</td><td>0.14</td><td>0.14</td><td>2724</td></tr>
+<tr><td>8</td><td>4</td><td>9</td><td>2852.3</td><td>0.005</td><td>0.02</td><td>0.02</td><td>371</td></tr>
+<tr><td>8</td><td>5</td><td>2</td><td>736.0</td><td>0.005</td><td>0.06</td><td>0.06</td><td>1170</td></tr>
+<tr><td>2</td><td>10</td><td>1</td><td>34.5</td><td>0.005</td><td>1.16</td><td>1.17</td><td>22700</td></tr>
+<tr><td>10</td><td>7</td><td>2</td><td>154.7</td><td>0.005</td><td>0.28</td><td>0.28</td><td>5477</td></tr>
+<tr><td>2</td><td>10</td><td>8</td><td>112.5</td><td>0.005</td><td>0.37</td><td>0.37</td><td>7184</td></tr>
+<tr><td>4</td><td>7</td><td>3</td><td>543.6</td><td>0.004</td><td>0.08</td><td>0.08</td><td>1598</td></tr>
+<tr><td>2</td><td>5</td><td>3</td><td>111.6</td><td>0.003</td><td>0.36</td><td>0.36</td><td>6951</td></tr>
+<tr><td>1</td><td>4</td><td>7</td><td>351.0</td><td>0.003</td><td>0.12</td><td>0.12</td><td>2356</td></tr>
+<tr><td>9</td><td>1</td><td>7</td><td>1301.4</td><td>0.003</td><td>0.03</td><td>0.03</td><td>676</td></tr>
+<tr><td>2</td><td>5</td><td>1</td><td>47.7</td><td>0.002</td><td>0.84</td><td>0.85</td><td>16525</td></tr>
+<tr><td>2</td><td>4</td><td>3</td><td>57.7</td><td>0.002</td><td>0.74</td><td>0.74</td><td>14413</td></tr>
+<tr><td>10</td><td>1</td><td>5</td><td>187.3</td><td>0.002</td><td>0.22</td><td>0.21</td><td>4172</td></tr>
+<tr><td>2</td><td>5</td><td>8</td><td>126.3</td><td>0.002</td><td>0.32</td><td>0.33</td><td>6364</td></tr>
+<tr><td>4</td><td>5</td><td>10</td><td>62.0</td><td>0.002</td><td>0.66</td><td>0.66</td><td>12932</td></tr>
+<tr><td>4</td><td>9</td><td>2</td><td>144.4</td><td>0.002</td><td>0.29</td><td>0.28</td><td>5537</td></tr>
+<tr><td>5</td><td>2</td><td>3</td><td>239.1</td><td>0.002</td><td>0.18</td><td>0.18</td><td>3540</td></tr>
+<tr><td>5</td><td>2</td><td>7</td><td>143.7</td><td>0.002</td><td>0.31</td><td>0.30</td><td>5911</td></tr>
+<tr><td>5</td><td>7</td><td>8</td><td>661.2</td><td>0.002</td><td>0.06</td><td>0.06</td><td>1224</td></tr>
+<tr><td>2</td><td>3</td><td>7</td><td>435.9</td><td>0.001</td><td>0.10</td><td>0.10</td><td>1961</td></tr>
+<tr><td>10</td><td>2</td><td>6</td><td>285.2</td><td>0.001</td><td>0.14</td><td>0.14</td><td>2706</td></tr>
+<tr><td>2</td><td>10</td><td>3</td><td>101.6</td><td>0.001</td><td>0.38</td><td>0.38</td><td>7380</td></tr>
+<tr><td>10</td><td>9</td><td>2</td><td>123.1</td><td>0.000</td><td>0.33</td><td>0.32</td><td>6284</td></tr>
+<tr><td>5</td><td>4</td><td>2</td><td>47.6</td><td>0.000</td><td>0.79</td><td>0.79</td><td>15423</td></tr>
+<tr><td>6</td><td>10</td><td>3</td><td>10087.7</td><td>0.000</td><td>0.01</td><td>0.01</td><td>103</td></tr>
+<tr><td>6</td><td>10</td><td>8</td><td>9224.2</td><td>0.000</td><td>0.01</td><td>0.01</td><td>106</td></tr>
+<tr><td>7</td><td>5</td><td>9</td><td>1285.8</td><td>0.000</td><td>0.03</td><td>0.03</td><td>663</td></tr>
+<tr><td>7</td><td>6</td><td>3</td><td>14413.0</td><td>0.000</td><td>0.00</td><td>0.00</td><td>69</td></tr>
+<tr><td>8</td><td>2</td><td>9</td><td>1551.5</td><td>0.000</td><td>0.03</td><td>0.03</td><td>521</td></tr>
+<tr><td>8</td><td>3</td><td>2</td><td>3009.8</td><td>0.000</td><td>0.02</td><td>0.02</td><td>332</td></tr>
+<tr><td>9</td><td>8</td><td>2</td><td>1995.0</td><td>0.000</td><td>0.03</td><td>0.03</td><td>501</td></tr>
+<tr><td>9</td><td>5</td><td>3</td><td>1835.4</td><td>0.000</td><td>0.02</td><td>0.02</td><td>418</td></tr>
+<tr><td>9</td><td>4</td><td>8</td><td>1259.5</td><td>0.000</td><td>0.03</td><td>0.03</td><td>649</td></tr>
+<tr><td>10</td><td>7</td><td>6</td><td>2271.5</td><td>0.000</td><td>0.02</td><td>0.02</td><td>371</td></tr>
+<tr><td>8</td><td>9</td><td>4</td><td>3246.5</td><td>0.000</td><td>0.02</td><td>0.02</td><td>322</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- タブ切り替えJS -->
+<!--  <script>-->
+<!--    function showTab(tabId) {-->
+<!--      document.querySelectorAll('.tab-content').forEach(function(el) {-->
+<!--        el.classList.remove('active');-->
+<!--      });-->
+
+<!--      document.querySelectorAll('.tab-button').forEach(function(el) {-->
+<!--        el.classList.remove('active');-->
+<!--      });-->
+
+<!--      document.getElementById(tabId).classList.add('active');-->
+
+<!--      document.querySelector(-->
+<!--        '.tab-button[onclick="showTab(\\'' + tabId + '\\')"]'-->
+<!--      ).classList.add('active');-->
+<!--    }-->
+<!--  </script>-->
+  <script>
+  function showTab(tabId) {
+    // コンテンツ切替
+    document.querySelectorAll('.tab-content').forEach(el => {
+      el.classList.remove('active');
+    });
+    document.getElementById(tabId).classList.add('active');
+
+    // ボタン切替
+    document.querySelectorAll('.tab-button').forEach(el => {
+      el.classList.remove('active');
+      if (el.dataset.tab === tabId) {
+        el.classList.add('active');
+      }
+    });
+  }
+
+  function sortTable(th, colIndex) {
+    const table = th.closest("table");
+    const tbody = table.querySelector("tbody");
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+
+    // 他の th の矢印を消す
+    table.querySelectorAll("th").forEach(h => {
+      if (h !== th) h.classList.remove("asc", "desc");
+    });
+
+    const asc = !th.classList.contains("asc");
+    th.classList.toggle("asc", asc);
+    th.classList.toggle("desc", !asc);
+
+    rows.sort((a, b) => {
+      const A = parseFloat(a.children[colIndex].innerText);
+      const B = parseFloat(b.children[colIndex].innerText);
+      return asc ? A - B : B - A;
+    });
+
+    rows.forEach(tr => tbody.appendChild(tr));
+  }
+
+  </script>
+
+</body>
+</html>
