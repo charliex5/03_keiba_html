@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026/08/09 新潟 10R </title>
+
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      margin: 20px;
+      background-color: #fafafa;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .tabs {
+      margin-bottom: 15px;
+    }
+
+    .tab-button {
+      padding: 9px 12px;
+      margin-right: 6px;
+      border: 1px solid #ccc;
+      background-color: #f0f0f0;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .tab-button.active {
+      background-color: #333;
+      color: #fff;
+      border-color: #333;
+    }
+
+    .tab-content {
+      display: none;
+      background-color: #fff;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 6px 8px;
+      text-align: right;
+    }
+
+    th {
+      background-color: #eee;
+    }
+
+    td:first-child, th:first-child {
+      text-align: center;
+    }
+
+    .no-data {
+      color: #999;
+      font-style: italic;
+      padding: 10px;
+    }
+
+    @media (max-width: 600px) {
+      table {
+        font-size: 11px;
+      }
+
+      th, td {
+        padding: 3px 5px;
+      }
+    }
+    th {
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    th.asc::after { content: " ▲"; }
+    th.desc::after { content: " ▼"; }
+
+    .race-list-link {
+      margin-bottom: 12px;
+    }
+
+    .race-list-link a {
+      display: inline-block;
+      font-size: 14px;
+      color: #4a90e2;
+      text-decoration: none;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .race-list-link a:hover {
+      background-color: #eef5ff;
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>2026/08/09 新潟 10R</h1>
+
+  <!-- 一覧リンク -->
+  <div class="race-list-link">
+    <a href="20260809_list.html">← 当日のレース一覧へ</a>
+  </div>
+
+  <!-- 券種タブ -->
+  <div class="tabs">
+    <button class="tab-button active" onclick="showTab('tansho')">単勝</button>
+    <button class="tab-button" onclick="showTab('umaren')">馬連</button>
+    <button class="tab-button" onclick="showTab('umatan')">馬単</button>
+    <button class="tab-button" onclick="showTab('sanrenpuku')">三連複</button>
+    <button class="tab-button" onclick="showTab('sanrentan')">三連単</button>
+  </div>
+
+  <!-- 単勝 -->
+  <div id="tansho" class="tab-content active">
+    <h2>単勝</h2>
+    <table>
+      <thead>
+        <tr>
+          <th onclick="sortTable(this, 0)">馬1</th>
+          <th onclick="sortTable(this, 1)">予O</th>
+          <th onclick="sortTable(this, 2)">変R</th>
+          <th onclick="sortTable(this, 3)">S3%</th>
+          <th onclick="sortTable(this, 4)">S2%</th>
+          <th onclick="sortTable(this, 5)">票2</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 馬連 -->
+  <div id="umaren" class="tab-content">
+    <h2>馬連</h2>
+    <table>
+      <thead>
+        <tr>
+          <th onclick="sortTable(this, 0)">馬1</th>
+          <th onclick="sortTable(this, 1)">馬2</th>
+          <th onclick="sortTable(this, 2)">予O</th>
+          <th onclick="sortTable(this, 3)">変R</th>
+          <th onclick="sortTable(this, 4)">S3%</th>
+          <th onclick="sortTable(this, 5)">S2%</th>
+          <th onclick="sortTable(this, 6)">票2</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 馬単 -->
+  <div id="umatan" class="tab-content">
+    <h2>馬単</h2>
+    <table>
+      <thead>
+        <tr>
+          <th onclick="sortTable(this, 0)">馬1</th>
+          <th onclick="sortTable(this, 1)">馬2</th>
+          <th onclick="sortTable(this, 2)">予O</th>
+          <th onclick="sortTable(this, 3)">変R</th>
+          <th onclick="sortTable(this, 4)">S3%</th>
+          <th onclick="sortTable(this, 5)">S2%</th>
+          <th onclick="sortTable(this, 6)">票2</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 三連複 -->
+  <div id="sanrenpuku" class="tab-content">
+    <h2>三連複</h2>
+    <table>
+      <thead>
+        <tr>
+          <th onclick="sortTable(this, 0)">馬1</th>
+          <th onclick="sortTable(this, 1)">馬2</th>
+          <th onclick="sortTable(this, 2)">馬3</th>
+          <th onclick="sortTable(this, 3)">予O</th>
+          <th onclick="sortTable(this, 4)">変R</th>
+          <th onclick="sortTable(this, 5)">S3%</th>
+          <th onclick="sortTable(this, 6)">S2%</th>
+          <th onclick="sortTable(this, 7)">票2</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 三連単 -->
+  <div id="sanrentan" class="tab-content">
+    <h2>三連単</h2>
+    <table>
+      <thead>
+        <tr>
+          <th onclick="sortTable(this, 0)">馬1</th>
+          <th onclick="sortTable(this, 1)">馬2</th>
+          <th onclick="sortTable(this, 2)">馬3</th>
+          <th onclick="sortTable(this, 3)">予O</th>
+          <th onclick="sortTable(this, 4)">変R</th>
+          <th onclick="sortTable(this, 5)">S3%</th>
+          <th onclick="sortTable(this, 6)">S2%</th>
+          <th onclick="sortTable(this, 7)">票2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>3</td><td>5</td><td>3195.7</td><td>0.061</td><td>0.02</td><td>0.02</td><td>478</td></tr>
+<tr><td>4</td><td>5</td><td>3</td><td>694.3</td><td>0.053</td><td>0.08</td><td>0.08</td><td>2059</td></tr>
+<tr><td>4</td><td>3</td><td>5</td><td>1097.2</td><td>0.051</td><td>0.05</td><td>0.05</td><td>1338</td></tr>
+<tr><td>1</td><td>5</td><td>3</td><td>2514.2</td><td>0.047</td><td>0.02</td><td>0.02</td><td>549</td></tr>
+<tr><td>7</td><td>2</td><td>5</td><td>8.9</td><td>0.036</td><td>5.20</td><td>5.28</td><td>133408</td></tr>
+<tr><td>5</td><td>4</td><td>3</td><td>367.0</td><td>0.029</td><td>0.15</td><td>0.15</td><td>3839</td></tr>
+<tr><td>7</td><td>4</td><td>6</td><td>49.8</td><td>0.029</td><td>0.92</td><td>0.93</td><td>23523</td></tr>
+<tr><td>3</td><td>1</td><td>5</td><td>2646.5</td><td>0.029</td><td>0.02</td><td>0.02</td><td>526</td></tr>
+<tr><td>7</td><td>4</td><td>2</td><td>44.3</td><td>0.028</td><td>1.04</td><td>1.05</td><td>26525</td></tr>
+<tr><td>7</td><td>2</td><td>4</td><td>37.7</td><td>0.027</td><td>1.43</td><td>1.44</td><td>36407</td></tr>
+<tr><td>4</td><td>5</td><td>2</td><td>230.3</td><td>0.027</td><td>0.21</td><td>0.21</td><td>5306</td></tr>
+<tr><td>7</td><td>5</td><td>2</td><td>4.7</td><td>0.027</td><td>9.91</td><td>10.04</td><td>253845</td></tr>
+<tr><td>3</td><td>4</td><td>5</td><td>1088.7</td><td>0.025</td><td>0.05</td><td>0.05</td><td>1192</td></tr>
+<tr><td>7</td><td>6</td><td>5</td><td>12.5</td><td>0.025</td><td>3.67</td><td>3.73</td><td>94210</td></tr>
+<tr><td>3</td><td>5</td><td>1</td><td>2025.9</td><td>0.023</td><td>0.03</td><td>0.03</td><td>655</td></tr>
+<tr><td>5</td><td>3</td><td>6</td><td>299.5</td><td>0.023</td><td>0.18</td><td>0.18</td><td>4509</td></tr>
+<tr><td>4</td><td>3</td><td>1</td><td>3432.3</td><td>0.021</td><td>0.02</td><td>0.02</td><td>468</td></tr>
+<tr><td>7</td><td>5</td><td>6</td><td>6.1</td><td>0.021</td><td>7.69</td><td>7.78</td><td>196526</td></tr>
+<tr><td>7</td><td>6</td><td>4</td><td>52.0</td><td>0.021</td><td>1.18</td><td>1.18</td><td>29913</td></tr>
+<tr><td>7</td><td>4</td><td>5</td><td>32.1</td><td>0.019</td><td>1.61</td><td>1.61</td><td>40796</td></tr>
+<tr><td>2</td><td>4</td><td>6</td><td>437.5</td><td>0.019</td><td>0.12</td><td>0.12</td><td>3070</td></tr>
+<tr><td>3</td><td>5</td><td>4</td><td>1042.6</td><td>0.019</td><td>0.05</td><td>0.05</td><td>1333</td></tr>
+<tr><td>5</td><td>3</td><td>4</td><td>541.4</td><td>0.018</td><td>0.11</td><td>0.11</td><td>2752</td></tr>
+<tr><td>4</td><td>7</td><td>3</td><td>361.7</td><td>0.017</td><td>0.16</td><td>0.16</td><td>3960</td></tr>
+<tr><td>4</td><td>1</td><td>6</td><td>3568.7</td><td>0.017</td><td>0.02</td><td>0.02</td><td>443</td></tr>
+<tr><td>2</td><td>5</td><td>4</td><td>207.1</td><td>0.016</td><td>0.26</td><td>0.25</td><td>6408</td></tr>
+<tr><td>4</td><td>2</td><td>3</td><td>888.1</td><td>0.016</td><td>0.06</td><td>0.06</td><td>1578</td></tr>
+<tr><td>4</td><td>2</td><td>5</td><td>308.4</td><td>0.015</td><td>0.17</td><td>0.17</td><td>4315</td></tr>
+<tr><td>5</td><td>4</td><td>2</td><td>127.4</td><td>0.014</td><td>0.41</td><td>0.40</td><td>10232</td></tr>
+<tr><td>2</td><td>6</td><td>4</td><td>330.7</td><td>0.014</td><td>0.14</td><td>0.14</td><td>3541</td></tr>
+<tr><td>5</td><td>4</td><td>6</td><td>131.7</td><td>0.013</td><td>0.39</td><td>0.39</td><td>9907</td></tr>
+<tr><td>4</td><td>1</td><td>3</td><td>3356.8</td><td>0.011</td><td>0.02</td><td>0.02</td><td>431</td></tr>
+<tr><td>4</td><td>3</td><td>2</td><td>1216.4</td><td>0.010</td><td>0.05</td><td>0.05</td><td>1202</td></tr>
+<tr><td>7</td><td>2</td><td>6</td><td>18.3</td><td>0.010</td><td>2.55</td><td>2.56</td><td>64581</td></tr>
+<tr><td>5</td><td>2</td><td>4</td><td>88.2</td><td>0.010</td><td>0.53</td><td>0.53</td><td>13429</td></tr>
+<tr><td>5</td><td>4</td><td>7</td><td>47.3</td><td>0.009</td><td>1.00</td><td>1.00</td><td>25280</td></tr>
+<tr><td>7</td><td>5</td><td>4</td><td>13.9</td><td>0.009</td><td>3.43</td><td>3.43</td><td>86620</td></tr>
+<tr><td>4</td><td>7</td><td>2</td><td>126.8</td><td>0.009</td><td>0.43</td><td>0.43</td><td>10789</td></tr>
+<tr><td>4</td><td>6</td><td>3</td><td>1343.0</td><td>0.008</td><td>0.04</td><td>0.04</td><td>1116</td></tr>
+<tr><td>5</td><td>1</td><td>3</td><td>1150.6</td><td>0.008</td><td>0.05</td><td>0.04</td><td>1126</td></tr>
+<tr><td>5</td><td>7</td><td>4</td><td>20.6</td><td>0.006</td><td>2.40</td><td>2.40</td><td>60719</td></tr>
+<tr><td>6</td><td>7</td><td>4</td><td>123.8</td><td>0.006</td><td>0.43</td><td>0.43</td><td>10777</td></tr>
+<tr><td>2</td><td>4</td><td>5</td><td>303.9</td><td>0.006</td><td>0.17</td><td>0.17</td><td>4381</td></tr>
+<tr><td>7</td><td>4</td><td>3</td><td>124.8</td><td>0.005</td><td>0.39</td><td>0.39</td><td>9894</td></tr>
+<tr><td>4</td><td>2</td><td>7</td><td>196.8</td><td>0.004</td><td>0.28</td><td>0.27</td><td>6937</td></tr>
+<tr><td>6</td><td>4</td><td>2</td><td>473.5</td><td>0.004</td><td>0.12</td><td>0.12</td><td>2974</td></tr>
+<tr><td>7</td><td>6</td><td>2</td><td>20.5</td><td>0.002</td><td>2.27</td><td>2.27</td><td>57475</td></tr>
+<tr><td>4</td><td>3</td><td>6</td><td>1444.8</td><td>0.002</td><td>0.04</td><td>0.04</td><td>894</td></tr>
+<tr><td>5</td><td>3</td><td>1</td><td>976.4</td><td>0.001</td><td>0.06</td><td>0.05</td><td>1366</td></tr>
+<tr><td>6</td><td>4</td><td>7</td><td>247.4</td><td>0.001</td><td>0.24</td><td>0.24</td><td>6052</td></tr>
+<tr><td>2</td><td>7</td><td>4</td><td>104.7</td><td>0.001</td><td>0.51</td><td>0.51</td><td>12889</td></tr>
+<tr><td>6</td><td>7</td><td>3</td><td>175.0</td><td>0.000</td><td>0.29</td><td>0.29</td><td>7293</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- タブ切り替えJS -->
+<!--  <script>-->
+<!--    function showTab(tabId) {-->
+<!--      document.querySelectorAll('.tab-content').forEach(function(el) {-->
+<!--        el.classList.remove('active');-->
+<!--      });-->
+
+<!--      document.querySelectorAll('.tab-button').forEach(function(el) {-->
+<!--        el.classList.remove('active');-->
+<!--      });-->
+
+<!--      document.getElementById(tabId).classList.add('active');-->
+
+<!--      document.querySelector(-->
+<!--        '.tab-button[onclick="showTab(\\'' + tabId + '\\')"]'-->
+<!--      ).classList.add('active');-->
+<!--    }-->
+<!--  </script>-->
+  <script>
+  function showTab(tabId) {
+    // コンテンツ切替
+    document.querySelectorAll('.tab-content').forEach(el => {
+      el.classList.remove('active');
+    });
+    document.getElementById(tabId).classList.add('active');
+
+    // ボタン切替
+    document.querySelectorAll('.tab-button').forEach(el => {
+      el.classList.remove('active');
+      if (el.dataset.tab === tabId) {
+        el.classList.add('active');
+      }
+    });
+  }
+
+  function sortTable(th, colIndex) {
+    const table = th.closest("table");
+    const tbody = table.querySelector("tbody");
+    const rows = Array.from(tbody.querySelectorAll("tr"));
+
+    // 他の th の矢印を消す
+    table.querySelectorAll("th").forEach(h => {
+      if (h !== th) h.classList.remove("asc", "desc");
+    });
+
+    const asc = !th.classList.contains("asc");
+    th.classList.toggle("asc", asc);
+    th.classList.toggle("desc", !asc);
+
+    rows.sort((a, b) => {
+      const A = parseFloat(a.children[colIndex].innerText);
+      const B = parseFloat(b.children[colIndex].innerText);
+      return asc ? A - B : B - A;
+    });
+
+    rows.forEach(tr => tbody.appendChild(tr));
+  }
+
+  </script>
+
+</body>
+</html>
